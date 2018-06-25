@@ -1,5 +1,12 @@
 "use strict";
 
+module.exports.truncateName = function truncateName(name) {
+    if (name.length > 255) {
+        return name.slice(0, 255 - 3) + "...";
+    }
+    return name;
+};
+
 module.exports.oneOf = function oneOf(...rules) {
     let self = function(ctx) {
         for (let rule of rules) {
